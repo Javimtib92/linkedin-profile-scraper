@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "linkedin-profile-scraper_javier_munoz_tous"
+name = "linkedin_profile_scraper_javier_munoz_tous"
 version = "0.0.1"
 authors = [
   { name="Javier Muñoz Tous", email="javimtib92@gmail.com" },
