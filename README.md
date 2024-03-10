@@ -45,3 +45,7 @@ The `RotateUserAgentMiddleware` can be found in `src/linkedin_profile_scraper_ja
 
 To know more about random proxy middleware refer to [scrapy-proxies
 repository](https://github.com/aivarsk/scrapy-proxies)
+
+# Project Structure
+
+This project can serve as a boilerplate for other web scraping projects using scrapy. There is a lot of auto-generated code created by Scrapy that I didn't remove for reference purposes.
