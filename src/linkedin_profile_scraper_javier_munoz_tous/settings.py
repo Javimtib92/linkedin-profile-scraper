@@ -61,11 +61,12 @@ PROXY_LIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "proxy/lis
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    "scrapy.downloadermiddlewares.retry.RetryMiddleware": 90,
-    "scrapy_proxies.RandomProxy": 100,
-    "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
-    "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
-    "linkedin_profile_scraper_javier_munoz_tous.middlewares.RotateUserAgentMiddleware": 400,
+    # Uncomment to use proxy and user agent rotation middlewares
+    # "scrapy.downloadermiddlewares.retry.RetryMiddleware": 90,
+    # "scrapy_proxies.RandomProxy": 100,
+    # "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
+    # "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
+    # "linkedin_profile_scraper_javier_munoz_tous.middlewares.RotateUserAgentMiddleware": 400,
 }
 
 # Enable or disable extensions

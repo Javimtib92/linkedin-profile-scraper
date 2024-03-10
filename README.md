@@ -17,3 +17,31 @@ The reason why I used pyenv is because I can set it up to automatically activate
 # Installing required dependencies
 
 `pip install -r requirements.txt`
+
+# How to use
+
+Navigate to the `src` folder and run the following in your terminal:
+
+`scrapy crawl linkedin_profile -O linkedin_profile.json`
+
+# Proxy and User Agent Rotation Middlewares
+
+This project is prepared to use a Proxy and User Agent rotation to prevent being blocked from LinkedIn. To activate this behavior modify `DOWNLOADER_MIDDLEWARES` config in `src/linkedin_profile_scraper_javier_munoz_tous/settings.py` and uncomment the commented middlewares.
+
+```python
+DOWNLOADER_MIDDLEWARES = {
+    "scrapy.downloadermiddlewares.retry.RetryMiddleware": 90,
+    # Uncomment to use proxy and user agent rotation middlewares
+    # "scrapy_proxies.RandomProxy": 100,
+    # "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
+    # "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
+    # "linkedin_profile_scraper_javier_munoz_tous.middlewares.RotateUserAgentMiddleware": 400,
+}
+```
+
+The list of proxies to be used can be modified in `src/linkedin_profile_scraper_javier_munoz_tous/proxy/list.txt`
+
+The `RotateUserAgentMiddleware` can be found in `src/linkedin_profile_scraper_javier_munoz_tous/middlewares.py`
+
+To know more about random proxy middleware refer to [scrapy-proxies
+repository](https://github.com/aivarsk/scrapy-proxies)

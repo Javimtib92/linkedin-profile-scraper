@@ -7,9 +7,6 @@ from scrapy import signals
 from scrapy.exceptions import NotConfigured
 from random import choice
 
-# useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
-
 
 class LinkedinProfileScraperJavierMunozTousSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
