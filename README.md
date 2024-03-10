@@ -29,7 +29,7 @@ To use the web scraper with your own LinkedIn profile, follow these steps:
 
 After completing these steps, the web scraper will use the specified LinkedIn profile URL for data extraction.
 
-## Example:
+## Example:
 
 ```toml
 [linkedin]
@@ -42,7 +42,9 @@ Ensure that the URL you provide points to your LinkedIn profile to avoid any iss
 
 Navigate to the `src` folder and run the following in your terminal:
 
-`scrapy crawl linkedin_profile`
+```shell
+scrapy crawl linkedin_profile
+```
 
 If it runs succesfully it will output a json file named `profile.json` in `src/output` folder.
 
