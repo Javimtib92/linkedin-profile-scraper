@@ -14,10 +14,10 @@ NEWSPIDER_MODULE = 'linkedin_profile_scraper_javier_munoz_tous.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'linkedin_profile_scraper_javier_munoz_tous (+http://www.yourdomain.com)'
+USER_AGENT = 'linkedin_profile_scraper_javier_munoz_tous (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
