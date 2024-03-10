@@ -105,3 +105,17 @@ DOWNLOADER_MIDDLEWARES = {
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+FEEDS = {
+    "output/profile.json": {
+        "format": "json",
+        "encoding": "utf8",
+        "store_empty": False,
+        "item_classes": ["linkedin_profile_scraper_javier_munoz_tous.items.Profile"],
+        "fields": None,
+        "indent": 4,
+        "item_export_kwargs": {
+            "export_empty_fields": True,
+        },
+    },
+}
