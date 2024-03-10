@@ -18,7 +18,27 @@ The reason why I used pyenv is because I can set it up to automatically activate
 
 `pip install -r requirements.txt`
 
-# How to use
+# Customizing LinkedIn Profile URL:
+
+To use the web scraper with your own LinkedIn profile, follow these steps:
+
+1. Open the config.toml file located in the project directory.
+2. Locate the [linkedin] section within the file.
+3. Uncomment the line that starts with LINKEDIN_PROFILE_URL
+4. Replace the placeholder URL "https://www.linkedin.com/in/example-profile/" with your own LinkedIn profile URL.
+
+After completing these steps, the web scraper will use the specified LinkedIn profile URL for data extraction.
+
+## Example:
+
+```toml
+[linkedin]
+LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/your-profile/"
+```
+
+Ensure that the URL you provide points to your LinkedIn profile to avoid any issues during scraping.
+
+# How to run the web scraper
 
 Navigate to the `src` folder and run the following in your terminal:
 

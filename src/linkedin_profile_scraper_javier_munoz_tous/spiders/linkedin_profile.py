@@ -1,22 +1,54 @@
+from pathlib import Path
+import tomllib
 import json
+import logging
 
 import scrapy
 
 from linkedin_profile_scraper_javier_munoz_tous.items import Profile
 
 
+CONFIG_PATH = Path(__file__).resolve().parents[2] / "config.toml"
+
+
 class LinkedinProfileSpider(scrapy.Spider):
     AUTOTHROTTLE_ENABLED = True
     AUTOTHROTTLE_START_DELAY = 10
-    handle_httpstatus_list = [999]
-    rotate_user_agent = True
+    handle_httpstatus_list = [
+        999
+    ]  # Allows spider to handle 999 status code respones (Custom response from LinkedIn when IP gets blocked)
+    rotate_user_agent = True  # Activates User Agent Rotation middleware
 
     name = "linkedin_profile"
     allowed_domains = ["linkedin.com"]
-    start_urls = ["https://www.linkedin.com/in/javier-muñoz-tous/"]
+
+    def __init__(self, *args, **kwargs):
+        super(LinkedinProfileSpider, self).__init__(*args, **kwargs)
+        self.config = self.read_config()
+
+    def read_config(self):
+        try:
+            with open(CONFIG_PATH, "rb") as file:
+                config = tomllib.load(file)
+            return config
+        except FileNotFoundError:
+            logging.error("Error: config.toml file not found!")
+            return None
+
+    def start_requests(self):
+        if self.config:
+            linkedin_profile_url = self.config.get("linkedin", {}).get(
+                "LINKEDIN_PROFILE_URL"
+            )
+            if linkedin_profile_url:
+                yield scrapy.Request(linkedin_profile_url, callback=self.parse)
+            else:
+                logging.error("Error: LINKEDIN_PROFILE_URL not found in config.")
+        else:
+            logging.error("Exiting...")
 
     def parse(self, response):
-        self.log(f"Scraping LinkedIn profile: {response.url}")
+        logging.info(f"Scraping LinkedIn profile: {response.url}")
 
         # Extracting JSON data from script elements
         script_elements = response.xpath('//script[@type="application/ld+json"]')
@@ -57,11 +89,6 @@ class LinkedinProfileSpider(scrapy.Spider):
             )
 
             yield profile_item
-
-            # Dumping data into JSON file
-            with open("linkedin_profile_data.json", "w") as json_file:
-                json.dump(json_content, json_file, indent=4)
-            self.log("Data dumped into linkedin_profile_data.json")
 
     def transform_organization_data(self, data):
         return {

@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 # Scrapy settings for linkedin_profile_scraper_javier_munoz_tous project
 #
@@ -56,7 +56,7 @@ RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408, 999]
 
 PROXY_MODE = 0
 
-PROXY_LIST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "proxy/list.txt")
+PROXY_LIST = Path(__file__).resolve().parent / "proxy" / "list.txt"
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
