@@ -14,6 +14,12 @@ You can follow the installation guide provided in the pyenv repository on GitHub
 
 The reason why I used pyenv is because I can set it up to automatically activate/deactivate python virtual environment when `cd` into the project.
 
+# Web Scraping with Scrapy
+
+This project leverages the Scrapy framework for efficient and powerful web scraping capabilities. Scrapy is a fast, high-level web crawling and web scraping framework written in Python. With its intuitive API and robust features, Scrapy enables the extraction of structured data from websites.
+
+For more information about Scrapy and its features, refer to the [official Scrapy documentation](https://scrapy.org).
+
 # Installing required dependencies
 
 `pip install -r requirements.txt`
