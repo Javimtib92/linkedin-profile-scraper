@@ -17,6 +17,11 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+  "scrapy",
+  "black",
+]
+
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Homepage = "https://github.com/Javimtib92/linkedin-profile-scraper"
+Issues = "https://github.com/Javimtib92/linkedin-profile-scraper/issues"
